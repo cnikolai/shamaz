@@ -17,6 +17,18 @@ class ViewController: UIViewController {
     
     //a label that controls the game interface
     @IBOutlet weak var LetsPlay: UILabel!
+    //outlets for buttons so that we can control font sizes by code later on
+    @IBOutlet weak var pastButton: UIButton!
+    @IBOutlet weak var futureButton: UIButton!
+ 
+    //creates resized text fonts for labels to fit in entire button (for smaller screens)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pastButton.titleLabel?.minimumScaleFactor = 0.50
+        pastButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        futureButton.titleLabel?.minimumScaleFactor = 0.50
+        futureButton.titleLabel?.adjustsFontSizeToFitWidth = true
+    }
     
     //a function that generates a random prompt from the past and then changes the UILabel display to that prompt
     @IBAction func generatePastPrompt() {
